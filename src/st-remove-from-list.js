@@ -19,13 +19,17 @@ const { NotImplementedError } = require('../extensions/index.js');
  * }
  */
 
-// module.exports = function removeKFromList(l, k) {
-function removeKFromList(l, k) {
-  let newList = null
-  for (i in l) {
-    console.log(i)
-    console.log(l[i])
-  }
-}
+module.exports = function removeKFromList(l, k) {
+// function removeKFromList(l, k) {
+  let newList = {}
+  let tempList = []
 
-removeKFromList([3, 1, 2, 3, 4, 5], 3)
+  for (i in l) {
+    (l[i] === k) ? false : tempList.push(i)
+  }
+  tempList.forEach((item, i) => {
+    newList = {value: item, next: newList}
+  })
+  return newList
+}
+// console.log(removeKFromList([3, 1, 2, 3, 4, 5], 3))
